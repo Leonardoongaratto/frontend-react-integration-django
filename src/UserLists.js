@@ -1,11 +1,24 @@
 import React from "react";
 import ListComponent from "./ListComponent";
 
-export default function(){
-    return (
-        <div>
-            <ListComponent listName={'Minha lista'}/>
-            <ListComponent listName={'Minha lista 2'}/>
-        </div>
-    )
+export default class UserLists extends React.Component{
+    state = { lists: null }
+
+    async componentDidMount(){
+        var url = 'http://127.0.0.1:8000/list/';
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        this.setState({lists: data, loading: false});
+    }
+
+    render()
+    {
+        return (
+            <div>
+                <ListComponent listName={'Minha lista'}/>
+                <ListComponent listName={'Minha lista 2'}/>
+            </div>
+        )
+    }
 }
