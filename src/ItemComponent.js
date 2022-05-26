@@ -6,7 +6,7 @@ export default function ItemComponent(props){
     return (
         <li>
             {props.name} 
-            <p>status: {status ? <div>Finalizado</div> : <div>Não finalizado</div>}</p>
+            <div>status: {status ? <div>Finalizado</div> : <div>Não finalizado</div>}</div>
         </li>
     )
 }
