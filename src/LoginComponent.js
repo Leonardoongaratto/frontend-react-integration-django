@@ -1,4 +1,5 @@
 import React from "react";
+import UserLists from "./UserLists";
 
 
 export default class LoginComponent extends React.Component{
@@ -36,7 +37,10 @@ export default class LoginComponent extends React.Component{
     }
     
     render(){
-        return (
+        var token = localStorage.getItem('token');
+        
+        if(!token)
+            return (
             <form onSubmit={this.handleSubmit}>
                 <label>
                 Name:
@@ -45,6 +49,8 @@ export default class LoginComponent extends React.Component{
                 </label>
                 <input type="submit" value="Submit" />
             </form>
-        )
+            );
+        else
+        return <UserLists />
     }
 }
