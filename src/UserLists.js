@@ -12,7 +12,7 @@ export default class UserLists extends React.Component{
         }
         config.headers['Authorization'] = 'Token ' + localStorage.getItem('token');
 
-        var url = 'http://list-of-items.herokuapp.com//list/';
+        var url = 'https://list-of-items.herokuapp.com/list/';
         const response = await fetch(url, config);
         const data = await response.json();
         console.log(data);
